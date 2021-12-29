@@ -1,64 +1,56 @@
 import React from 'react'
 
-import {Image, View, StyleSheet,Text} from 'react-native'
+import {Image, View, StyleSheet,Text, TouchableHighlight} from 'react-native'
+import Swipeable from 'react-native-gesture-handler/Swipeable';
 
-export function ListItem({image, title, subtitle }) {
+
+
+
+import colors from "../config/colors"
+
+export function ListItem({image, title, subtitle, onPress, renderRightActions, style, IconComponent }) {
     return (
-        <View style={styles.container}>
-            
-            <View style={styles.titleGroup}>
-                <Text style={styles.title}>{title}</Text>
-                <Text style={styles.subtitle}>{subtitle}</Text>
+        <Swipeable renderRightActions={renderRightActions}>
+        <TouchableHighlight underlayColor={colors.light} onPress={onPress}>
+        
+        <View style={[styles.container, style]}>
+            <View style={styles.titles}>
+            <Text style={styles.title} >{title}</Text>
+            {subtitle && <Text style={styles.subtitle}>{subtitle}</Text> }
             </View>
-            <View>
-                
-            </View>
+            {image && <Image resizeMode="contain" style={styles.image} source={image}/>}
+            {IconComponent}
 
-            <View>
-                <Image resizeMode="contain" style={styles.image} source={image}/>
-           </View>
             
        </View>
+       </TouchableHighlight></Swipeable>
     )
 }
 
 
 const styles = StyleSheet.create({
     container: {
-        // flex: 1,
-        backgroundColor:'green',
         width: "100%",
         height: 80,
-        // flex: 1,
         flexDirection: 'row-reverse',
         alignItems: 'center',
-        // overflow: 'hidden'
+        padding: 10,
+        backgroundColor:'white'
+
     },
+  
     image:{
         width: 80,
-        // height: "100%",
-        flex: 1,
+        height: 80,
         borderRadius: 50,
         borderWidth: 3,
-        // flex: 1
-        marginRight: 10,
-        marginLeft: 5
-        
-
-
-
-},
-subtitle:{
-    color: '#6e6969'
 },
 title:{
-fontWeight:"500"
+    fontWeight: "700"
 },
-
-titleGroup:{
-    backgroundColor: 'yellow',
-    height: "100%",
+titles:{
     flex: 1,
-    paddingLeft: 10
+    justifyContent: 'center',
+    marginLeft: 5
 }
 })

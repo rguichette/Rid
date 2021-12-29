@@ -12,13 +12,19 @@ import {AppBtn} from "./app/components/AppBtn"
 import {Card} from "./app/components/Card"
 import ListingDetailsScreen from './app/screens/ListingDetailsScreen';
 import { ListItem } from './app/components/ListItem';
+import MessagesScreen from './app/screens/MessagesScreen';
+import MyAccountScreen from './app/screens/MyAccountScreen';
+import ListingsScreen from './app/screens/ListingsScreen';
+import { Icon } from './app/components/Icon';
 
 export default function App() {
 
 
   return (
     
-    <ListingDetailsScreen/> 
+   <MyAccountScreen/>
+  // <MessagesScreen/>
+  // <ListingsScreen/>
 
     );
 }
@@ -34,7 +40,7 @@ const styles = StyleSheet.create({
   // },
   container:{
       backgroundColor:"#f8f4f4",
-     alignContent:"center",
+      alignContent:"center",
       justifyContent: "center",
       flex:1,
       alignItems: "center"
