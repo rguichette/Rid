@@ -1,28 +1,39 @@
 import React from 'react'
-import { FlatList, Text, View } from 'react-native'
+import { FlatList, Text, View, StyleSheet } from 'react-native'
 import { Card } from '../components/Card'
 import { Screen } from './Screen'
 
 export default function ListingsScreen() {
     let DATA = 
-       [{ title: "title_one",
+       [{
+        id: "oowpad" ,
+        title: "title_one",
         subtitle: "subtitle_one", 
-        image: "../assets/jacket.jpg"}, 
+        image: require("../assets/jacket.jpg")}, 
        
-        { title: "title_two",
+        {
+        id: "twawlf", 
+        title: "title_two",
         subtitle: "subtitle_two", 
-        image: "../assets/jacket.jpg"}
+        image: require("../assets/jacket.jpg")
+    }
     
     ]
     
     return (
-        <Screen>
-            <FlatList data={DATA} renderItem={({item})=>{
+        <Screen style={styles.screen}>
+            <FlatList 
+            data={DATA} 
+            keyExtractor={item => item.id.toString()} 
+            renderItem={({item})=>{
+                
                     let imageUrl = item.image;
                     console.log(imageUrl);
-                  return <Card title={item.title} subtitle={item.subtitle}/>
+                  return <Card title={item.title} subtitle={item.subtitle} image={item.image}/>
 
             }
+
+            
             // console.log(item.image)
             
         }
@@ -34,3 +45,10 @@ export default function ListingsScreen() {
         </Screen>
     )
 }
+
+
+const styles = StyleSheet.create({
+    screen:{
+        padding: 20
+    }
+})

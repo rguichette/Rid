@@ -22,9 +22,9 @@ export default function App() {
 
   return (
     
-   <MyAccountScreen/>
+  //  <MyAccountScreen/>
   // <MessagesScreen/>
-  // <ListingsScreen/>
+  <ListingsScreen/>
 
     );
 }
