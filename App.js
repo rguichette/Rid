@@ -1,6 +1,6 @@
 // import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { View, StyleSheet, SafeAreaView , Text} from 'react-native';
+import React, {useState} from 'react';
+import { View, StyleSheet, SafeAreaView ,Text, TextInput, StatusBar, Switch} from 'react-native';
 
 
 
@@ -12,19 +12,39 @@ import {AppBtn} from "./app/components/AppBtn"
 import {Card} from "./app/components/Card"
 import ListingDetailsScreen from './app/screens/ListingDetailsScreen';
 import { ListItem } from './app/components/ListItem';
+
 import MessagesScreen from './app/screens/MessagesScreen';
 import MyAccountScreen from './app/screens/MyAccountScreen';
 import ListingsScreen from './app/screens/ListingsScreen';
+import {Screen} from './app/screens/Screen';
+
+
 import { Icon } from './app/components/Icon';
+import {AppTextInput} from './app/components/AppTextInput';
+import colors from './app/config/colors';
+import { AppPicker } from './app/components/AppPicker';
+import LoginScreen from './app/screens/LoginScreen';
+
+
+
+const categories = [
+  {label:"Furniture", value: 1},
+  {label:"Clothing", value:2 },
+  {label:"Cameras", value: 3}
+
+]
 
 export default function App() {
 
+  const [category, setCategory] =  useState()
 
   return (
     
-  //  <MyAccountScreen/>
-  // <MessagesScreen/>
-  <ListingsScreen/>
+
+
+
+<LoginScreen/>
+
 
     );
 }

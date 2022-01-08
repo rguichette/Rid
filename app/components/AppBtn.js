@@ -3,11 +3,12 @@ import { Text, TouchableOpacity } from 'react-native'
 import { View, StyleSheet } from 'react-native'
 import colors from '../config/colors'
 
-export function AppBtn({title, color}) {
+export function AppBtn({title, color, ...props}) {
     
     console.log(colors["primary"])
     return (
-        <TouchableOpacity style={[{backgroundColor: colors[color]}, styles.container]}>
+       
+        <TouchableOpacity style={[{backgroundColor: colors[color]}, styles.container]} {...props} >
             <Text style={{
                     color: "white",
                     fontWeight: '700' 
@@ -22,7 +23,7 @@ const styles = StyleSheet.create({
         fontWeight: '700'
     },
     container:{
-        // backgroundColor:"red",
+        backgroundColor:colors.primary,
         width: "100%", 
         height: 40,
         borderRadius: 20,
