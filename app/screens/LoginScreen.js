@@ -1,14 +1,15 @@
 import React, {useState} from 'react'
 import {StyleSheet, Image, Text} from 'react-native'
-import {Formik} from 'formik'
 import * as Yup from 'yup'
 
-import { AppBtn } from '../components/AppBtn'
-import { AppTextInput } from '../components/AppTextInput'
+
 import { Screen } from './Screen'
-import {AppText} from '../components/AppText'
-import {ErrorMessage} from '../components/ErrorMessage'
-import {AppFormField} from '../components/AppFormField'
+
+import {AppForm, AppFormField, SubmitBtn} from '../components/forms'
+
+// import {AppFormField} from '../components/forms/AppFormField'
+// import {SubmitBtn} from '../components/forms/SubmitBtn'
+// import { AppForm } from '../components/forms/AppForm'
 
 const validationSchema = Yup.object().shape({
     email: Yup.string().required().email().label("Email"),
@@ -27,14 +28,12 @@ export default function LoginScreen() {
             style={styles.logo}
             source={require("../assets/logo-red.png")}/>
 
-            <Formik
+            <AppForm
             initialValues={{email:'', password:''}}
             onSubmit={values =>console.log(values)}
             validationSchema={validationSchema}
             >
-                {({handleChange, handleSubmit, errors, setFieldTouched, touched}) =>(
-                 <>
-                  <AppFormField
+                   <AppFormField
             autoCapitalize="none" 
             autoCorrect={false}
             icon="email"
@@ -54,12 +53,11 @@ export default function LoginScreen() {
             secureTextEntry
             textContentType="password"
             />
-
-            <AppBtn title="Login" onPress={handleSubmit} />
+            <SubmitBtn title="Login"/>  
+            
                  
-                 </>   
-                )}
-            </Formik>
+               
+            </AppForm>
           
            
         </Screen>
