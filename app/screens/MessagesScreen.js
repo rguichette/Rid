@@ -45,7 +45,7 @@ export default function MessagesScreen() {
     }
 
     return (
-        <Screen>
+        <Screen style={{flex:1}}>
        <FlatList 
        data={messages} 
        keyExtractor={message => message.id.toString()}

@@ -9,17 +9,17 @@ import {AppText} from "./AppText"
 import { Screen } from '../screens/Screen'
 import PickerItem from './PickerItem'
 
-export function AppPicker({icon,items,onSelectItem, placeholder, selectedItem}) {
+export function AppPicker({icon,items,onSelectItem, placeholder, selectedItem, style}) {
     const [modalVisible, setModalVisible] = useState(false)
     
     return (
         <>
 
         <TouchableWithoutFeedback onPress={()=>setModalVisible(true)}>
-        <View style={styles.container}>
+        <View style={[styles.container, style]}>
            {icon && <MaterialCommunityIcons name={icon}  size={20} style={styles.icon}/> }
 
-        <AppText style={styles.text}>{selectedItem ? selectedItem.label : placeholder}</AppText>
+        <AppText style={[styles.text,{color: !selectedItem ? "#cecece": 'black'}]}>{selectedItem ? selectedItem.label : placeholder}</AppText>
 
         <MaterialCommunityIcons name="chevron-down"  size={20}/>
         </View>
@@ -61,10 +61,7 @@ const styles = StyleSheet.create({
    
   },
   text:{
-      flex: 1,
-      backgroundColor: 'red',
-      color: 'green'
-     
+      flex: 1 
   },
     // textInput: defaultStyles.text
 })

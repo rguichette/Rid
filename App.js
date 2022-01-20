@@ -25,6 +25,7 @@ import colors from './app/config/colors';
 import { AppPicker } from './app/components/AppPicker';
 import LoginScreen from './app/screens/LoginScreen';
 import {RegisterScreen} from './app/screens/RegisterScreen';
+import { ListingEditScreen } from './app/screens/ListingEditScreen';
 
 
 
@@ -40,9 +41,18 @@ export default function App() {
   const [category, setCategory] =  useState()
 
   return (
-    
-<RegisterScreen/>
 
+
+      // {/* <ListItem image={require("./app/assets/logo-red.png")} 
+      // title="Red"
+      //  subtitle="hgsdfadfadfjakdfkla;dflk;;;jkl;allllldladfldsjfa;lkjfawefnvcdka;fdjs;ifjadnafk;afja;dsfjoewfijkdad;sdjf;afjofjda;dfja;dfjdlm;alad;afdfjaer;fjdmdjffaw jfjadsfawefij jda owjjfa;fajaf;v jfirfaj;" 
+      // showChevrons
+      // /> */}
+
+      <ListingEditScreen/>
+
+
+    
 
 
 
