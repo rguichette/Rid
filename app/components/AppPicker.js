@@ -25,12 +25,15 @@ export function AppPicker({icon,items,onSelectItem, placeholder, selectedItem, s
         </View>
         </TouchableWithoutFeedback>
         <Modal visible={modalVisible} animationType='slide'>
-            <Screen>
+            <Screen >
             <Button title="close" onPress={() => setModalVisible(false)}/>
-            <FlatList
+            <FlatList 
+            numColumns={3}
             data={items}
             keyExtractor={item => item.value.toString()}
-            renderItem ={({item})=><PickerItem label={item.label} onPress={()=>{
+            
+            renderItem ={({item})=><PickerItem style={{borderColor:"black", marginLeft: 25, margin: 10
+        }} label={item.label} labelIcon={item.icon} iconBGColor={item.iconBGColor}  onPress={()=>{
 
                   setModalVisible(false);
                 onSelectItem(item)
@@ -52,7 +55,7 @@ const styles = StyleSheet.create({
         borderRadius: 25, 
         flexDirection: 'row',
         width: "100%",
-        padding: 15,
+        // padding: 15,
         marginVertical: 10
     },
     
@@ -60,8 +63,15 @@ const styles = StyleSheet.create({
     //   marginRight: 10
    
   },
+  iconList:{
+backgroundColor: 'yellow',
+alignContent:"center",
+// borderWidth: 4
+
+
+  },
   text:{
-      flex: 1 
+      flex: 1
   },
     // textInput: defaultStyles.text
 })

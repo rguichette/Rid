@@ -22,9 +22,20 @@ const validationSchema = Yup.object().shape({
 export function ListingEditScreen() {
 
     const categories = [
-        {label:"Furniture", value: 1},
-        {label:"Clothing", value:2 },
-        {label:"Cameras", value: 3}
+        {label:"Furniture", value: 1, icon: "floor-lamp", iconBGColor: "#fc5c65"},
+        {label:"Cars", value:2, icon: "car", iconBGColor: "#fd9644" },
+        {label:"Cameras", value: 3, icon: "camera", iconBGColor: "#fed330"},
+        {label:"Games", value: 4, icon: "cards", iconBGColor: "#26de81"},
+        {label:"Clothing", value: 5, icon: "shoe-heel", iconBGColor: "#2bcbba"},
+        {label:"Sports", value: 6, icon: "basketball", iconBGColor: "#45aaf2"},
+        {label:"Movies & Music", value: 7, icon: "floor-lamp", iconBGColor: "#4b7bec"},
+        {label:"Books", value: 7, icon: "book", iconBGColor: "#9C67E3"},
+        {label:"Other", value: 7, icon: "other", iconBGColor: "#7C8DA2"}
+       
+       
+        // {label:"Cameras", value: 8, icon: "floor-lamp", iconBGColor: "#fc5c65"},
+        // {label:"Cameras", value: 9, icon: "floor-lamp", iconBGColor: "#fc5c65"},
+      
       
       ]
     
@@ -41,7 +52,7 @@ export function ListingEditScreen() {
 
                 <AppFormField style={styles.price} name="price" placeholder="Price" maxLength={8}/>
                 
-                <AppFormPicker style={styles.category}  name="category" items={categories}  placeholder="Categories" />
+                <AppFormPicker style={styles.category} name="category" items={categories}  placeholder="Categories" />
 
                 <AppFormField name="description" placeholder="Description"/>
 

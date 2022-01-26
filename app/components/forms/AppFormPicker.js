@@ -24,8 +24,12 @@ export default function AppFormPicker({ items, name, placeholder,style}) {
                     selectedItem={values[name]}
                     visible={touched[name]}
                     style={style}
+                 
+
+                   
                     
                     />
+                    {/* {console.log(items)} */}
 
         </AppForm>
         
