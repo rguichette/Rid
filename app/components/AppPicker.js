@@ -32,7 +32,7 @@ export function AppPicker({icon,items,onSelectItem, placeholder, selectedItem, s
             data={items}
             keyExtractor={item => item.value.toString()}
             
-            renderItem ={({item})=><PickerItem style={{borderColor:"black", marginLeft: 25, margin: 10
+            renderItem ={({item})=><PickerItem style={{borderColor:"black", marginLeft: 40, margin: 10
         }} label={item.label} labelIcon={item.icon} iconBGColor={item.iconBGColor}  onPress={()=>{
 
                   setModalVisible(false);
