@@ -1,6 +1,10 @@
 // import { StatusBar } from 'expo-status-bar';
-import React, {useState} from 'react';
-import { View, StyleSheet, SafeAreaView ,Text, TextInput, StatusBar, Switch} from 'react-native';
+import React, {useState, useEffect} from 'react';
+import { View, StyleSheet, 
+  SafeAreaView ,Text, TextInput,
+   StatusBar, Switch, Button,
+  Image
+  } from 'react-native';
 
 
 
@@ -28,6 +32,11 @@ import {RegisterScreen} from './app/screens/RegisterScreen';
 import { ListingEditScreen } from './app/screens/ListingEditScreen';
 
 
+import * as ImagePicker from 'expo-image-picker'
+import {AppImage} from './app/components/AppImage';
+import {ImageInput} from './app/components/ImageInput';
+import { ImageInputList } from './app/components/ImageInputList';
+
 
 const categories = [
   {label:"Furniture", value: 1},
@@ -38,18 +47,46 @@ const categories = [
 
 export default function App() {
 
-  const [category, setCategory] =  useState()
+  const [imageUri, setImageUri] =  useState()
+  const [imageUris, setImageUris] =  useState([])
+  
+
+  const requestPermission = async ()=>{
+
+    const result =  await ImagePicker.requestMediaLibraryPermissionsAsync();
+    
+    if(!result.granted)
+      alert("You need to enable permission to access the library.")
+   }
+
+   useEffect(async ()=>{
+    requestPermission();
+   }, [])
+
+   const selectImage = async () =>{
+     try {
+      const result= await ImagePicker.launchImageLibraryAsync()
+        if(!result.cancelled)
+          setImageUri(result.uri)
+          // setImageUris(imageUris =>{ 
+            
+          //  return  [...imageUris, result.uri]})
+     } catch (error) {
+       console.log("error reading an image")
+     }
+    
+   }
 
   return (
 
+   
 
-      // {/* <ListItem image={require("./app/assets/logo-red.png")} 
-      // title="Red"
-      //  subtitle="hgsdfadfadfjakdfkla;dflk;;;jkl;allllldladfldsjfa;lkjfawefnvcdka;fdjs;ifjadnafk;afja;dsfjoewfijkdad;sdjf;afjofjda;dfja;dfjdlm;alad;afdfjaer;fjdmdjffaw jfjadsfawefij jda owjjfa;fajaf;v jfirfaj;" 
-      // showChevrons
-      // /> */}
 
-      <ListingEditScreen/>
+     <Screen>
+  <ImageInput selectImage={selectImage} imageUri={imageUri} onChangeImage={uri => setImageUri(uri)}/>
+
+  </Screen>
+
 
 
     
