@@ -38,6 +38,7 @@ import {ImageInput} from './app/components/ImageInput';
 import { ImageInputList } from './app/components/ImageInputList';
 
 
+
 const categories = [
   {label:"Furniture", value: 1},
   {label:"Clothing", value:2 },
@@ -47,46 +48,48 @@ const categories = [
 
 export default function App() {
 
-  const [imageUri, setImageUri] =  useState()
   const [imageUris, setImageUris] =  useState([])
   
 
-  const requestPermission = async ()=>{
+  // const requestPermission = async ()=>{
 
-    const result =  await ImagePicker.requestMediaLibraryPermissionsAsync();
+  //   const result =  await ImagePicker.requestMediaLibraryPermissionsAsync();
     
-    if(!result.granted)
-      alert("You need to enable permission to access the library.")
-   }
+  //   if(!result.granted)
+  //     alert("You need to enable permission to access the library.")
+  //  }
 
-   useEffect(async ()=>{
-    requestPermission();
-   }, [])
+  //  useEffect(async ()=>{
+  //   requestPermission();
+  //  }, [])
 
-   const selectImage = async () =>{
-     try {
-      const result= await ImagePicker.launchImageLibraryAsync()
-        if(!result.cancelled)
-          setImageUri(result.uri)
-          // setImageUris(imageUris =>{ 
+  //  const selectImage = async () =>{
+  //    try {
+  //     const result= await ImagePicker.launchImageLibraryAsync()
+  //       if(!result.cancelled)
+  //         setImageUris(result.uri)
+  //         // setImageUris(imageUris =>{ 
             
-          //  return  [...imageUris, result.uri]})
-     } catch (error) {
-       console.log("error reading an image")
-     }
+  //         //  return  [...imageUris, result.uri]})
+  //    } catch (error) {
+  //      console.log("error reading an image")
+  //    }
     
-   }
+  //  }
+
+  const handleAdd = uri =>{
+    setImageUris([...imageUris, uri])
+  }
+
+  const handleRemove = uri =>{
+    setImageUris(imageUris.filter(imageUri => imageUri !== uri))
+  }
 
   return (
 
    
 
-
-     <Screen>
-  <ImageInput selectImage={selectImage} imageUri={imageUri} onChangeImage={uri => setImageUri(uri)}/>
-
-  </Screen>
-
+<ListingEditScreen/>
 
 
     

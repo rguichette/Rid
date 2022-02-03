@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Text, StyleSheet } from 'react-native'
 import * as Yup from 'yup'
+import * as Location from 'expo-location'
 
 
 import colors from '../config/colors'
@@ -8,18 +9,25 @@ import colors from '../config/colors'
 import { AppForm, AppFormField, SubmitBtn } from '../components/forms'
 import AppFormPicker from '../components/forms/AppFormPicker'
 import { Screen } from './Screen'
+import {FormImagePicker} from "../components/forms/FormImagePicker"
+
+
+import useLocation from '../hooks/useLocation'
 
 
 const validationSchema = Yup.object().shape({
     title: Yup.string().required().label("Title"),
     price: Yup.number().required().min(1).max(10000).label("Price"),
     description: Yup.string().required().max(255).label("Description"),
-    category: Yup.object().required().label("Category")
+    category: Yup.object().required().label("Category"),
+    images: Yup.array().min(1, "Please select at least one image")
 })
 
 
 
 export function ListingEditScreen() {
+   const location =  useLocation()
+
 
     const categories = [
         {label:"Furniture", value: 1, icon: "floor-lamp", iconBGColor: "#fc5c65"},
@@ -33,9 +41,7 @@ export function ListingEditScreen() {
         {label:"Other", value: 7, icon: "other", iconBGColor: "#7C8DA2"}
        
        
-        // {label:"Cameras", value: 8, icon: "floor-lamp", iconBGColor: "#fc5c65"},
-        // {label:"Cameras", value: 9, icon: "floor-lamp", iconBGColor: "#fc5c65"},
-      
+
       
       ]
     
@@ -44,10 +50,11 @@ export function ListingEditScreen() {
         <Screen>
 
             <AppForm
-            initialValues={{title:'', price:'', description:'', category:null}}
-            onSubmit={values =>console.log(values)}
+            initialValues={{title:'', price:'', description:'', category:null, images: []}}
+            onSubmit={values =>console.log(location)}
             validationSchema={validationSchema}
             >
+                <FormImagePicker name="images"/>
                 <AppFormField  name="title" placeholder="Title" />
 
                 <AppFormField style={styles.price} name="price" placeholder="Price" maxLength={8}/>
