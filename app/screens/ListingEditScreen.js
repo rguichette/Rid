@@ -25,7 +25,7 @@ const validationSchema = Yup.object().shape({
 
 
 
-export function ListingEditScreen() {
+export default function ListingEditScreen() {
    const location =  useLocation()
 
 

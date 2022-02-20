@@ -1,8 +1,9 @@
 import React from 'react'
-import { View, StyleSheet, Text, Image } from 'react-native'
+import { View, StyleSheet, Text, Image, TouchableWithoutFeedback } from 'react-native'
 
-export function Card({title, subtitle, image}) {
+export function Card({title, subtitle, image, onPress}) {
     return (
+      <TouchableWithoutFeedback onPress={onPress ? onPress : null}>
       <View style= {styles.container}>
           <Image resizeMode="cover" source={image} style= {styles.image}/>
        <View style={styles.info}>
@@ -10,7 +11,7 @@ export function Card({title, subtitle, image}) {
          <Text>{subtitle}</Text>
        </View>
         
-     </View>
+     </View></TouchableWithoutFeedback>
     )
 }
 

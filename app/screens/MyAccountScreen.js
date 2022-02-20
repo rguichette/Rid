@@ -7,7 +7,7 @@ import {Icon} from '../components/Icon'
 
 import colors from '../config/colors'
 
-export default function MyAccountScreen() {
+export default function MyAccountScreen({navigation}) {
     return (
         <Screen style={styles.container}>
 
@@ -19,7 +19,7 @@ export default function MyAccountScreen() {
                     } onPress={()=>console.log("hi")}
                     />
                         <ListItem title="My Messages" IconComponent={<Icon iconName="email" iconBGColor={colors.secondary}/>
-                    } onPress={()=>console.log("hi")}
+                    } onPress={()=>console.log(navigation.navigate("Messages"))}
                     />
                 </View>
 

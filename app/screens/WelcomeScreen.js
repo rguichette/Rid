@@ -5,8 +5,7 @@ import { AppBtn } from '../components/AppBtn';
 
 
 
-export function WelcomeScreen() {
-
+export default function WelcomeScreen({navigation}) {
   return ( 
 
     <ImageBackground blurRadius={8} style={styles.backgroundImage} source={require("../assets/background.jpg")}>
@@ -21,8 +20,8 @@ export function WelcomeScreen() {
 
            </SafeAreaView>
                     <View style={styles.btnWrapper}>
-                    <AppBtn title="LOGIN" color="primary"/>
-                    <AppBtn title="SIGNUP" color="secondary"/>
+                    <AppBtn title="LOGIN" color="primary" onPress={()=>{navigation.navigate("Login")}}/>
+                    <AppBtn title="SIGNUP" color="secondary" onPress={()=>{navigation.navigate("Register")}} />
                     </View>
 
         {/* <View ></View> */}

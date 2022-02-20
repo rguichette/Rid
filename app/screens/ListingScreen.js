@@ -3,19 +3,22 @@ import { FlatList, Text, View, StyleSheet } from 'react-native'
 import { Card } from '../components/Card'
 import { Screen } from './Screen'
 
-export default function ListingsScreen() {
+export default function ListingScreen({navigation}) {
     let DATA = 
        [{
         id: "oowpad" ,
         title: "title_one",
         subtitle: "subtitle_one", 
-        image: require("../assets/jacket.jpg")}, 
+        image: require("../assets/jacket.jpg"),
+        price: 231
+    }, 
+      
        
         {
         id: "twawlf", 
         title: "title_two",
         subtitle: "subtitle_two", 
-        image: require("../assets/jacket.jpg")
+        image: require("../assets/ipad.jpg")
     }
     
     ]
@@ -29,7 +32,7 @@ export default function ListingsScreen() {
                 
                     let imageUrl = item.image;
                     console.log(imageUrl);
-                  return <Card title={item.title} subtitle={item.subtitle} image={item.image}/>
+                  return <Card title={item.title} subtitle={item.subtitle} image={item.image} onPress={()=>{navigation.navigate("ListingDetails", {item:item})}}/>
 
             }
 

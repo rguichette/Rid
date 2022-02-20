@@ -21,7 +21,7 @@ const validationSchema = Yup.object().shape({
 
 
 
-export function RegisterScreen() {
+export default function RegisterScreen() {
     return (
         <Screen style={{padding: 10}}> 
 <AppForm 

@@ -7,17 +7,17 @@ import {Card} from "../components/Card"
 import {ListItem} from "../components/ListItem"
 
 
-export default function ListingDetailsScreen() {
-
-
+export default function ListingDetailScreen(props) {
+const {item} = props.route.params
+console.log(item)
   return (
        <View>
 <SafeAreaView style={styles.container}>
-    <Card title="red jacket for sale" subtitle="$100" image={require("../assets/jacket.jpg")}/>
+    <Card title="red jacket for sale" subtitle={item.price} image={item.image}/>
 
 
 </SafeAreaView> 
-   <ListItem title="some title" subtitle="List item" image={require("../assets/logo-red.png")} />
+   <ListItem title={item.title} subtitle={item.subtitle} image={require("../assets/logo-red.png")} />
 
 {/* {console.log(require("../assets/splash.png"))} */}
 </View>

@@ -33,10 +33,11 @@ const initMessages = [{
 
 ]
 
-export default function MessagesScreen() {
+export default function MessagesScreen({navigation}) {
     const [messages, setMessages] = useState(initMessages)
     const [refreshing, setRefreshing] = useState(false)
 
+    // console.log(navigation)
 
     const handleDelete = message =>{
         //Delete the message from messages
