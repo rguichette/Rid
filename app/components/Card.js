@@ -1,11 +1,11 @@
 import React from 'react'
 import { View, StyleSheet, Text, Image, TouchableWithoutFeedback } from 'react-native'
 
-export function Card({title, subtitle, image, onPress}) {
+export function Card({title, subtitle, imageUrl, onPress}) {
     return (
       <TouchableWithoutFeedback onPress={onPress ? onPress : null}>
       <View style= {styles.container}>
-          <Image resizeMode="cover" source={image} style= {styles.image}/>
+          <Image resizeMode="cover" source={{uri:imageUrl}} style= {styles.image}/>
        <View style={styles.info}>
          <Text style={styles.text}>{title}</Text>  
          <Text>{subtitle}</Text>
