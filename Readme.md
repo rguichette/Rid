@@ -1,1 +1,1 @@
-![Listings](Rid/screenshots/Listings.png)
+![Listings](raw.githubusercontent.com/rguichette/Rid/screenshots/Listings.png)
