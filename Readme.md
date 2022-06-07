@@ -1,1 +1,1 @@
-![Listings](screenshots/Listings.png =x250)
+<img src="screenshots/Listings.png" width="200">
