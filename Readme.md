@@ -1,1 +1,1 @@
-![Listings](screenshots/Listings.png)
+![Listings](screenshots/Listings.png =x250)
