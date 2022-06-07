@@ -1,1 +1,1 @@
-![Listings](Rid/screenshots/Listings.png)
+![Listings](screenshots/Listings.png)
